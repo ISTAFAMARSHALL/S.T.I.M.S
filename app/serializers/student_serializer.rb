@@ -11,6 +11,6 @@ class StudentSerializer < ActiveModel::Serializer
     self.object.user
   end
 
-  has_many :student_classes, serializer: StudentClassSummarySerializer
-  
+  has_many :student_courses, serializer: StudentCourseSummarySerializer
+
 end

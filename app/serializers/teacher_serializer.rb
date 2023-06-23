@@ -10,6 +10,6 @@ class TeacherSerializer < ActiveModel::Serializer
     self.object.user
   end
   
-  has_many :student_classes
-  
+  has_many :student_courses
+
 end
