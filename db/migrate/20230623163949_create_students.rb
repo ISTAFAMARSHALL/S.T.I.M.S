@@ -8,7 +8,7 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :birthday
       t.integer :school_id
       t.integer :user_id
-      t.integer :student_class_id
+      t.integer :student_course_id
 
       t.timestamps
     end

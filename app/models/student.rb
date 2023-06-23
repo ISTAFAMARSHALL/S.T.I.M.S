@@ -4,6 +4,6 @@ class Student < ApplicationRecord
     belongs_to :school
     
     has_many :course_enrollments, dependent: :destroy
-    has_many :student_classes, through: :course_enrollments
+    has_many :student_courses, through: :course_enrollments
     
 end
