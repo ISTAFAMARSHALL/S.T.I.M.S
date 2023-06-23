@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-Create Schools
+# Create Schools
 10.times do |index|
 
     School.create!(name: Faker::Educator.unique.primary_school, address: Faker::Address.unique.full_address)
