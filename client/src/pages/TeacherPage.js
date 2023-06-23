@@ -8,7 +8,7 @@ function TeacherPage () {
     const [selectedClass , setSelectedClass] = useState(false);
     const [viewClass , setViewClass] = useState(false);
 
-    let displayClasses = currentUser.student_classes.map((course) => {
+    let displayClasses = currentUser.student_courses.map((course) => {
 
         return (           
             <div key={course.id}>
@@ -40,7 +40,7 @@ function TeacherPage () {
 
             <ol>
                 
-                {currentUser.student_classes.length<=0 ? (        
+                {currentUser.student_courses.length<=0 ? (        
                     <>
                     <h2>You have no classes</h2>
                     </>
