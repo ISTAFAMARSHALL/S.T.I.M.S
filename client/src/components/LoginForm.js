@@ -79,12 +79,12 @@ function LoginForm({ setLoggedIn }) {
         {/* <LoginButton>Login With Google</LoginButton> */}
       </div>
 
-      <div>
+      {/* <div>
         { errors.length <= 0 ? ("") : (
         errors.map((err) => (
         <li key={err}>{err}</li>
         )))}
-      </div>
+      </div> */}
 
     </form>
   );
