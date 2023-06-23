@@ -1,4 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
+  
   attributes :id , :email, :auth_level, :image
 
   attribute :schools do 
@@ -21,5 +22,5 @@ class UserSerializer < ActiveModel::Serializer
   has_many :students
   has_many :student_classes
   has_many :course_enrollments
-  
+
 end
