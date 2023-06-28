@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  get "/all_teachers", to: "schools#all_teachers"
-  get "/all_students", to: "schools#all_students"
+  get "/all_teachers/:id", to: "schools#all_teachers"
+  get "/all_students/:id", to: "schools#all_students"
 
 end

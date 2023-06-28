@@ -13,7 +13,7 @@ function StudentList () {
   const filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
       
   useEffect(() => {
-    fetch(`schools/${filtered_school}`)
+    fetch(`all_students/${filtered_school}`)
     .then((response) => {
     if (response.ok) {
     response.json().then((data) => {
