@@ -9,6 +9,16 @@ class SchoolsController < ApplicationController
         school = School.find(params[:id])
         render json: school, status: :ok
     end
+
+    def all_teachers
+        school = School.find(params[:id])
+        render json: school, status: :ok
+    end
+
+    def all_students
+        school = School.find(params[:id])
+        render json: school, status: :ok
+    end
     
     def create
         school = School.create!(school_params)
