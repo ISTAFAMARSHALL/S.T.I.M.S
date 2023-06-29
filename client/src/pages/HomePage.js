@@ -41,7 +41,7 @@ function HomePage({setLoggedIn}) {
     .then(data => {
       setSchool(data)
     })
-  },);
+  }, [setCurrentUser]);
 
 //   const responseGoogle = (response) => {
 //     console.log(response, "I AM RESPONSE FROM GOOGLE")
