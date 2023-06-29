@@ -22,7 +22,7 @@ function StudentList () {
     } else {
     response.json().then((e) => setErrors(e.errors));
     }});
-  }, [editStudent, filtered_school]);
+  }, [editStudent]);
 
   function handleStudentEdit(e) {
     setUpdateStudent(e)
@@ -39,11 +39,11 @@ function StudentList () {
         
     <div>
         
-      <h1>All of {school.name} Students</h1>
+      <h1>All of {currentUser.schools[0].name} Students</h1>
 
 
 
-      {school.length === undefined ? (school.students.map((s) => (
+      {school.length !== 0 ? (school.map((s) => (
             
         <ul key={s.id}>
         
