@@ -19,31 +19,82 @@ function HomePage({setLoggedIn}) {
 
   
   const {currentUser, setCurrentUser} = useContext(UserContext);
-  const [school, setSchool] = useState([]);
-  const [enableButton, setEnableButton] = useState(true);
+  const [staff, setStaff] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [staffButton, setStaffButton] = useState(true);
+  const [studentButton, setStudentButton] = useState(true);
 
-   useEffect(() => {
+  //  useEffect(() => {
+  //   fetch("/me")
+  //   .then((response) => {
+  //     if (response.ok) {
+  //       return response.json();
+  //     }})
+  //   .then((user) => {
+  //     setCurrentUser(user);
+      
+  //     let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
+
+  //   fetch(`all_teachers/${filtered_school}`)
+  //   })
+  //   .then(response => {
+  //     if (response.ok) {
+  //       return response.json();
+  //     }})
+  //   .then(data => {
+  //     setStaff(data)
+  //     setStaffButton(false)
+  //   })
+  // }, [setCurrentUser]);
+
+  useEffect(() => {
     fetch("/me")
     .then((response) => {
       if (response.ok) {
         return response.json();
-      }})
+      } else {
+        throw new Error(`Request failed: ${response.status}`);
+      }
+    })
     .then((user) => {
       setCurrentUser(user);
-      
+
       let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
 
-      return fetch(`all_teachers/${filtered_school}`)
+      return fetch(`all_teachers/${filtered_school}`);
     })
     .then(response => {
       if (response.ok) {
         return response.json();
-      }})
-    .then(data => {
-      setSchool(data)
-      setEnableButton(false)
+      } else {
+        throw new Error(`Request failed: ${response.status}`);
+      }
     })
-  }, [setCurrentUser]);
+    .then((teachersData) => {
+      setStaff(teachersData);
+      setStaffButton(false)
+
+      let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
+      
+      // Assuming `all_students` API is also based on the user's school id
+      return fetch(`all_students/${filtered_school}`);
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error(`Request failed: ${response.status}`);
+      }
+    })
+    .then((studentsData) => {
+      // Assuming you have a state setter method setStudents to store students data
+      setStudents(studentsData);
+      setStudentButton(false)
+      setLoggedIn(true);
+    })
+    .catch(error => console.error('Error:', error));
+  }, [setCurrentUser, setStaff, setStudents]); // Assuming setStudents exists
+  
 
 //   const responseGoogle = (response) => {
 //     console.log(response, "I AM RESPONSE FROM GOOGLE")
@@ -81,7 +132,7 @@ function HomePage({setLoggedIn}) {
   return (
     <div>
 
-    <NavBar setLoggedIn={setLoggedIn} enableButton={enableButton}/>
+    <NavBar setLoggedIn={setLoggedIn} staffButton={staffButton} studentButton={studentButton} />
 
     <Switch>
 
@@ -90,11 +141,11 @@ function HomePage({setLoggedIn}) {
     </Route>
 
     <Route path="/teachers/">
-      <TeacherList school={school} />
+      <TeacherList staff={staff} setStaff={setStaff} />
     </Route>
 
     <Route path="/students/">
-      <StudentList school={school} />
+      <StudentList students={students} setStudents={setStudents} />
     </Route>
 
     <Route path="/my_info/">

@@ -2,7 +2,7 @@ import React, {  useState, useContext} from "react";
 import { UserContext } from "../context/user";
 import TeacherEditForm from "../components/TeacherEditForm";
 
-function TeacherList ({school}) {
+function TeacherList ({staff , setStaff}) {
 
   const {currentUser} = useContext(UserContext);
   // const [school, setSchool] = useState([]);
@@ -36,7 +36,10 @@ function TeacherList ({school}) {
 
       <TeacherEditForm editTeacher={editTeacher} 
       setEditTeacher={setEditTeacher} 
-      updateTeacher={updateTeacher} />
+      updateTeacher={updateTeacher} 
+      staff={staff}
+      setStaff={setStaff}
+      />
 
     </div>
 
@@ -44,9 +47,9 @@ function TeacherList ({school}) {
 
     <div>
       
-      <h1>All of {school[0].school.name} Teachers</h1>
+      <h1>All of {staff[0].school.name} Teachers</h1>
 
-      {school.length !== 0 ? (school.map((t) => (
+      {staff.length !== 0 ? (staff.map((t) => (
 
       <ul key={t.id}>
 

@@ -2,7 +2,7 @@ import React, { useState, useContext} from "react";
 import { UserContext } from "../context/user";
 import StudentEditForm from "../components/StudentEditForm.js";
 
-function StudentList ({school}) {
+function StudentList ({students , setStudents }) {
 
   const {currentUser} = useContext(UserContext);
   const [editStudent, setEditStudent] = useState(false);
@@ -30,16 +30,19 @@ function StudentList ({school}) {
     
     <div>
       <br></br>
-      <StudentEditForm editStudent={editStudent} setEditStudent={setEditStudent} updateStudent={updateStudent} />
+      <StudentEditForm editStudent={editStudent} setEditStudent={setEditStudent} updateStudent={updateStudent} 
+      students={students}
+      setStudents={setStudents}
+      />
     </div>
     
     ) : (
         
     <div>
         
-      <h1>All of {school[0].school.name} Students</h1>
+      <h1>All of {students[0].school.name} Students</h1>
 
-      {school.length !== 0 ? (school.map((s) => (
+      {students.length !== 0 ? (students.map((s) => (
             
         <ul key={s.id}>
         

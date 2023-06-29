@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function StudentEditForm({setEditStudent,editStudent, updateStudent}) {
+function StudentEditForm({setEditStudent,editStudent, updateStudent, students, setStudents}) {
 
   const [name, setStudentsName] = useState(updateStudent.name);
   const [address, setAddress] = useState(updateStudent.address);
@@ -27,7 +27,11 @@ function StudentEditForm({setEditStudent,editStudent, updateStudent}) {
     }).then((response) => {
     if (response.ok) {
     response.json().then((data) => {
-    setEditStudent(!editStudent)
+
+    let filtered_students = students.filter((e) => e.id !== updateStudent.id);
+
+    setStudents([data, ...filtered_students]);
+    setEditStudent(!editStudent);
     });
     } else {
     response.json().then((e) => setErrors(e.errors));

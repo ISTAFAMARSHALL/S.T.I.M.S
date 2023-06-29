@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom'
 import { UserContext } from "../context/user";
 // import LogoutButton from "../components/LogoutButton";
 
-function Navbar({setLoggedIn , enableButton}) {
+function Navbar({setLoggedIn , staffButton, studentButton}) {
 
   const { currentUser, setCurrentUser} = useContext(UserContext)
 
@@ -33,18 +33,18 @@ function Navbar({setLoggedIn , enableButton}) {
         className="button"
         exact
         to="/schools">
-        <button disabled={enableButton} > Schools</button>
+        <button  > Schools</button>
       </NavLink>) : ("")}
 
       <NavLink className="button"
         exact
         to="/teachers"
-        ><button disabled={enableButton} > {currentUser.auth_level === "admin"  && currentUser.schools.length === 0 ? ("School District Staff") : ("School Staff")} </button>
+        ><button disabled={staffButton} > {currentUser.auth_level === "admin"  && currentUser.schools.length === 0 ? ("School District Staff") : ("School Staff")} </button>
       </NavLink>
       
       <NavLink className="button"
         exact
-        to="/students"><button disabled={enableButton} > {currentUser.auth_level === "admin" && currentUser.schools.length === 0 ? ("School District Students") : ("School Students")}</button>
+        to="/students"><button disabled={studentButton} > {currentUser.auth_level === "admin" && currentUser.schools.length === 0 ? ("School District Students") : ("School Students")}</button>
       </NavLink>
 
       <NavLink className="button"

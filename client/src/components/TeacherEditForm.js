@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 
 
-function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher}) {
+function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher, staff, setStaff}) {
 
   const [name, setTeachersName] = useState(updateTeacher.name);
   const [address, setAddress] = useState(updateTeacher.address);
@@ -23,6 +23,8 @@ function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher}) {
     email,
     birthday
   }
+
+  console.log(staff.filter((e) => e.id !== updateTeacher.id))
     
   function handleEditTeacher(e) {
     e.preventDefault();
@@ -36,6 +38,10 @@ function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher}) {
     }).then((response) => {
     if (response.ok) {
     response.json().then((data) => {
+
+    let filtered_staff = staff.filter((e) => e.id !== updateTeacher.id)
+    setStaff([data, ...filtered_staff])
+
     setEditTeacher(!editTeacher)
     });
     } else {
