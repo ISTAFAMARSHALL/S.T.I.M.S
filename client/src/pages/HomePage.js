@@ -153,7 +153,10 @@ function HomePage({setLoggedIn}) {
     </Route>
 
     <Route path="/">
-      { currentUser.auth_level !== "admin" ? ("") : (<AdminPage />)}
+      { currentUser.auth_level !== "admin" ? ("") : (<AdminPage 
+      staff={staff} setStaff={setStaff}
+      students={students} setStudents={setStudents}
+      />)}
 
       { currentUser.auth_level !== "teacher" ? ("") : (<TeacherPage />)}
 

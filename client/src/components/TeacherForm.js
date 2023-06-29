@@ -3,7 +3,7 @@ import { UserContext } from "../context/user";
 import Axios from "axios"; 
 
 
-function TeacherForm({setAddTeacher,addTeacher, setDisabled}) {
+function TeacherForm({setAddTeacher,addTeacher, setDisabled, staff , setStaff}) {
 
   const [name, setTeachersName] = useState("");
   const [address, setAddress] = useState("");
@@ -63,7 +63,8 @@ function TeacherForm({setAddTeacher,addTeacher, setDisabled}) {
     body: JSON.stringify(newTeacher)
     }).then((response) => {
     if (response.ok) {
-    response.json().then((data) => {
+    response.json().then((teacher_data) => {
+    setStaff([teacher_data, ...staff])
     setAddTeacher(!addTeacher)
     setDisabled(false)
     });

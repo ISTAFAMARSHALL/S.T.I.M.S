@@ -2,7 +2,7 @@ import React, { useState, useContext} from "react";
 import { UserContext } from "../context/user";
 import Axios from "axios"; 
 
-function StudentForm({setAddStudent,addStudent, setDisabled}) {
+function StudentForm({setAddStudent,addStudent, setDisabled,students , setStudents}) {
 
   const [name, setStudentsName] = useState("");
   const [address, setAddress] = useState("");
@@ -59,7 +59,9 @@ function StudentForm({setAddStudent,addStudent, setDisabled}) {
     body: JSON.stringify(newStudent)
     }).then((response) => {
     if (response.ok) {
-    response.json().then((data) => {
+    response.json().then((student_data) => {
+    
+    setStudents([student_data, ...students])
     setAddStudent(!addStudent)
     setDisabled(false)
     });

@@ -4,7 +4,7 @@ import { UserContext } from "../context/user";
 import TeacherForm from "../components/TeacherForm";
 import StudentForm from "../components/StudentForm";
 
-function AdminPage () {
+function AdminPage ({staff , setStaff, students , setStudents}) {
 
     const {currentUser } = useContext(UserContext);
 
@@ -56,9 +56,9 @@ function AdminPage () {
                     Add Student
                 </button>
 
-                {addTeacher ? ( <TeacherForm setDisabled={setDisabled} setAddTeacher={setAddTeacher} addTeacher={addTeacher} /> ) : ("") }
+                {addTeacher ? ( <TeacherForm setDisabled={setDisabled} setAddTeacher={setAddTeacher} addTeacher={addTeacher} staff={staff} setStaff={setStaff} /> ) : ("") }
 
-                {addStudent ? ( <StudentForm setDisabled={setDisabled} setAddStudent={setAddStudent} addStudent={addStudent} /> ) : ("") }
+                {addStudent ? ( <StudentForm setDisabled={setDisabled} setAddStudent={setAddStudent} addStudent={addStudent} students={students} setStudents={setStudents} /> ) : ("") }
                         
             </ol> 
 
