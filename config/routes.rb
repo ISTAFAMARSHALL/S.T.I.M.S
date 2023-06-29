@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
   
   get "/me", to: "users#me"
   
@@ -13,12 +13,13 @@ Rails.application.routes.draw do
   resources :teachers
   resources :student_courses
   resources :users
+  get "/all_teachers/:id", to: "schools#all_teachers"
+  get "/all_students/:id", to: "schools#all_students"
 
   
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
-  get "/all_teachers/:id", to: "schools#all_teachers"
-  get "/all_students/:id", to: "schools#all_students"
+
 
 end
