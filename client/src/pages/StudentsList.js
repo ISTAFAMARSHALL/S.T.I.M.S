@@ -22,7 +22,7 @@ function StudentList () {
     } else {
     response.json().then((e) => setErrors(e.errors));
     }});
-  }, [editStudent]);
+  }, [setEditStudent]);
 
   function handleStudentEdit(e) {
     setUpdateStudent(e)
