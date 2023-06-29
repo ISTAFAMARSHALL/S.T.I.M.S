@@ -20,6 +20,7 @@ function HomePage({setLoggedIn}) {
   
   const {currentUser, setCurrentUser} = useContext(UserContext);
   const [school, setSchool] = useState([]);
+  const [enableButton, setEnableButton] = useState(true);
 
    useEffect(() => {
     fetch("/me")
@@ -40,6 +41,7 @@ function HomePage({setLoggedIn}) {
       }})
     .then(data => {
       setSchool(data)
+      setEnableButton(false)
     })
   }, [setCurrentUser]);
 
@@ -79,7 +81,7 @@ function HomePage({setLoggedIn}) {
   return (
     <div>
 
-    <NavBar setLoggedIn={setLoggedIn} />
+    <NavBar setLoggedIn={setLoggedIn} enableButton={enableButton}/>
 
     <Switch>
 

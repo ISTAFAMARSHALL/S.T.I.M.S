@@ -37,7 +37,7 @@ function StudentList ({school}) {
         
     <div>
         
-      {/* <h1>All of {school[0].school.name} Students</h1> */}
+      <h1>All of {school[0].school.name} Students</h1>
 
       {school.length !== 0 ? (school.map((s) => (
             
