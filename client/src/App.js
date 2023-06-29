@@ -1,35 +1,13 @@
-import { useEffect , useState, useContext} from "react";
+import { useState } from "react";
 import React from 'react';
-import { Route, Switch} from "react-router-dom"
 import Login from "./pages/Login"
-import NavBar from "./components/NavBar"
-import TeacherPage from "./pages/TeacherPage"
-import { UserContext } from "./context/user";
-import StudentPage from "./pages/StudentPage";
-import TeacherList from "./pages/TeacherList";
-import StudentList from "./pages/StudentsList";
-import SchoolList from "./pages/SchoolList";
-import MyInfoPage from "./pages/MyInfoPage";
-import AdminPage from "./pages/AdminPage";
+import HomePage from "./pages/HomePage";
 // import { GoogleAPI, GoogleLogin, GoogleLogout } from "react-google-oauth";
-
 
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
-  const {currentUser, setCurrentUser} = useContext(UserContext);
-  
-
-  useEffect(() => {
-    fetch("/me")
-    .then((response) => {
-      if (response.ok) {
-        response.json().then((data) => {
-          setCurrentUser(data);
-          setLoggedIn(true)});
-    }});
-  }, [setCurrentUser]);
 
 //   const responseGoogle = (response) => {
 //     console.log(response, "I AM RESPONSE FROM GOOGLE")
@@ -72,61 +50,61 @@ function App() {
     <h3>Student Teacher Integrated Management System</h3>
         
     {!loggedIn ? (
-    <Login setLoggedIn={setLoggedIn}/>
+    <Login setLoggedIn={setLoggedIn} />
     ) : (
-      
-    <>
+      <HomePage setLoggedIn={setLoggedIn} />
+    // <>
 
-    <NavBar setLoggedIn={setLoggedIn} />
+    // <NavBar setLoggedIn={setLoggedIn} />
 
-    <Switch>
+    // <Switch>
 
-    <Route path="/schools/">
-      <SchoolList/>
-    </Route>
+    // <Route path="/schools/">
+    //   <SchoolList/>
+    // </Route>
 
-    <Route path="/teachers/">
-      <TeacherList/>
-    </Route>
+    // <Route path="/teachers/">
+    //   <TeacherList school={school} />
+    // </Route>
 
-    <Route path="/students/">
-      <StudentList/>
-    </Route>
+    // <Route path="/students/">
+    //   <StudentList school={school} />
+    // </Route>
 
-    <Route path="/my_info/">
-        <MyInfoPage/>
-    </Route>
+    // <Route path="/my_info/">
+    //     <MyInfoPage/>
+    // </Route>
 
 
 
-    <Route path="/">
-      { currentUser.auth_level !== "admin" ? ("") : (<AdminPage setLoggedIn={setLoggedIn}/>)}
+    // <Route path="/">
+    //   { currentUser.auth_level !== "admin" ? ("") : (<AdminPage setLoggedIn={setLoggedIn}/>)}
 
-      { currentUser.auth_level !== "teacher" ? ("") : (<TeacherPage setLoggedIn={setLoggedIn}/>)}
+    //   { currentUser.auth_level !== "teacher" ? ("") : (<TeacherPage setLoggedIn={setLoggedIn}/>)}
 
-      { currentUser.auth_level !== "student" ? (""): (<StudentPage/>) }
+    //   { currentUser.auth_level !== "student" ? (""): (<StudentPage/>) }
 
         
-      {/* <GoogleAPI className="GoogleLogin" clientId={CLIENT_ID}>
-        <div>
-          <GoogleLogin
-            height="10"
-            width="500px"
-            backgroundColor="#4285f4"
-            access="offline"
-            scope="email profile"
-            onLoginSuccess={responseGoogle}
-            onFailure={responseGoogle}
-          />
-        </div>
-      </GoogleAPI>
-         */}
+    //   {/* <GoogleAPI className="GoogleLogin" clientId={CLIENT_ID}>
+    //     <div>
+    //       <GoogleLogin
+    //         height="10"
+    //         width="500px"
+    //         backgroundColor="#4285f4"
+    //         access="offline"
+    //         scope="email profile"
+    //         onLoginSuccess={responseGoogle}
+    //         onFailure={responseGoogle}
+    //       />
+    //     </div>
+    //   </GoogleAPI>
+    //      */}
  
-    </Route> 
+    // </Route> 
         
-    </Switch>
+    // </Switch>
           
-    </>
+    // </>
       
     )}  
         

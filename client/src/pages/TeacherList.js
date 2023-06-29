@@ -1,28 +1,28 @@
-import React, { useEffect , useState, useContext} from "react";
+import React, {  useState, useContext} from "react";
 import { UserContext } from "../context/user";
 import TeacherEditForm from "../components/TeacherEditForm";
 
-function TeacherList () {
+function TeacherList ({school}) {
 
   const {currentUser} = useContext(UserContext);
-  const [school, setSchool] = useState([]);
-  const [errors, setErrors] = useState([]);
+  // const [school, setSchool] = useState([]);
+
   const [editTeacher, setEditTeacher] = useState(false);
   const [updateTeacher, setUpdateTeacher] = useState([]);
 
-  let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
+  // let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
 
-  useEffect(() => {
-    fetch(`all_teachers/${filtered_school}`)
-    .then((response) => {
-    if (response.ok) {
-    response.json().then((data) => {
-    setSchool(data);
-    });
-    } else {
-    response.json().then((e) => setErrors(e.errors));
-    }});
-  }, [setEditTeacher]);
+  // useEffect(() => {
+  //   fetch(`all_teachers/${filtered_school}`)
+  //   .then((response) => {
+  //   if (response.ok) {
+  //   response.json().then((data) => {
+  //   setSchool(data);
+  //   });
+  //   } else {
+  //   response.json().then((e) => setErrors(e.errors));
+  //   }});
+  // }, [setEditTeacher]);
 
   function handleTeacherEdit(e) {
     setUpdateTeacher(e)
@@ -44,7 +44,7 @@ function TeacherList () {
 
     <div>
       
-      <h1>All of {currentUser.schools[0].name} Teachers</h1>
+      <h1>All of {school[0].school.name} Teachers</h1>
 
       {school.length !== 0 ? (school.map((t) => (
 
@@ -73,13 +73,6 @@ function TeacherList () {
       </ul>
 
       ))) : ("") }
-
-      <div>
-        { errors.length <= 0 ? ("") : (
-        errors.map((err) => (
-        <li key={err}>{err}</li>
-        )))}
-      </div>
 
     </div>
 
