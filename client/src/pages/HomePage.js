@@ -57,7 +57,7 @@ function HomePage({setLoggedIn}) {
   }, [setCurrentUser, setStaff, setStudents]);
 
   return (
-    <div>
+    <div id="container">
 
     <NavBar setLoggedIn={setLoggedIn} staffButton={staffButton} studentButton={studentButton} />
 

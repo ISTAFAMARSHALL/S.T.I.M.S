@@ -52,10 +52,11 @@ function TeacherPage () {
                     
                     (<>
                     
+                    <div id="student_courses">
                     <h2>Your Classes</h2>
                         
                     {displayClasses}
-                    
+                    </div>
                     </>) : (
                     
                     <ClassDetails selectedClass={selectedClass} setViewClass={setViewClass}/>

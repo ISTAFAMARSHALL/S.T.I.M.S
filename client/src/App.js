@@ -43,7 +43,7 @@ function App() {
   
 
   return (
-    <div>
+    <div id="container">
       
     <h1>S.T.I.M.S</h1>
       

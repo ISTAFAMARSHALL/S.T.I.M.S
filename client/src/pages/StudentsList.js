@@ -38,13 +38,13 @@ function StudentList ({students , setStudents }) {
     
     ) : (
         
-    <div>
+    <main>
         
       <h1>All of {students[0].school.name} Students</h1>
 
       {students.length !== 0 ? (students.map((s) => (
             
-        <ul key={s.id}>
+        <ul key={s.id} className="student">
         
         <img src={s.user.image} alt={s.name}/>
         <br></br>
@@ -62,7 +62,7 @@ function StudentList ({students , setStudents }) {
           </ul>
       ))) : ("") }
 
-    </div>
+    </main>
 
   )
 }

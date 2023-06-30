@@ -171,6 +171,7 @@ function TeacherForm({setAddTeacher,addTeacher, setDisabled, staff , setStaff}) 
 
         <br></br>
         
+        <div id='admin_buttons'>
         <button disabled={disableSave} type="submit" value="Save">Save Teacher</button>
 
         <button onClick={()=>{
@@ -179,7 +180,7 @@ function TeacherForm({setAddTeacher,addTeacher, setDisabled, staff , setStaff}) 
           }} variant="fill" color="primary" >
           Cancel 
         </button>
-
+        </div>
       </form>
 
       <br></br>

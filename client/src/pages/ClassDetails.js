@@ -20,14 +20,17 @@ function ClassDetails({selectedClass,setViewClass}) {
 
     return (
         <div >
+            <div id='class_details'>
             <h1>{selectedClass.teacher.subject}</h1>
-            <header>{selectedClass.time} Student List</header>
-            <br></br>
+            <p>{selectedClass.time} Student List</p>
+            </div>
             {student_list}
             <br></br>
+            <div id='admin_buttons'>
             <button onClick={()=>setViewClass(false)} variant="fill" color="primary" >
                 Return to Class List
             </button>
+            </div>
         </div>
     )
 }

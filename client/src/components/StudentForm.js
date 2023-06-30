@@ -147,6 +147,7 @@ function StudentForm({setAddStudent,addStudent, setDisabled,students , setStuden
 
       <br></br>
       
+      <div id='admin_buttons'>
       <button disabled={disableSave} type="submit" value="Save">Save Student</button>
 
       <button onClick={()=>{
@@ -155,7 +156,8 @@ function StudentForm({setAddStudent,addStudent, setDisabled,students , setStuden
         }} variant="fill" color="primary" >
         Cancel 
       </button>
-
+      </div>
+      
     </form>
 
     <br></br>

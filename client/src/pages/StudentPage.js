@@ -10,7 +10,7 @@ function StudentPage () {
 
     let displayTeachers = currentUser.course_enrollments.map((course) => {
         return (        
-            <div key={course.id}>
+            <div key={course.id} >
                 <div>
                 Course: {course.teacher[0].subject}
                 <br></br>
@@ -49,12 +49,12 @@ function StudentPage () {
             <>
             {!viewTeacher ?   
             (
-            <>
+            <div id="student_courses">
 
             <h2>Your Classes</h2>
             
             {displayTeachers}
-            </>
+            </div>
 
             ):(
             

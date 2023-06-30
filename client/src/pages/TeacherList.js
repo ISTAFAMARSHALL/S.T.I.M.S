@@ -15,7 +15,7 @@ function TeacherList ({staff , setStaff}) {
 
   return editTeacher === true ? (
         
-    <div>
+    <div >
 
       <br></br>
 
@@ -30,13 +30,13 @@ function TeacherList ({staff , setStaff}) {
 
     ) : (
 
-    <div>
+    <main >
       
       <h1>All of {staff[0].school.name} Teachers</h1>
-
+      <div className="teachers" >
       {staff.length !== 0 ? (staff.map((t) => (
 
-      <ul key={t.id}>
+      <div key={t.id} className="teacher">
 
         <img src={t.user.image} alt={t.name}/>
         <br></br>
@@ -58,11 +58,11 @@ function TeacherList ({staff , setStaff}) {
         </button>
         ) : ("")}
 
-      </ul>
+      </div>
+      
+      ))) : ("") }</div>
 
-      ))) : ("") }
-
-    </div>
+    </main>
 
   )
 }

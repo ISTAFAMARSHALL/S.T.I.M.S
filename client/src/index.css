@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Optional - this will make sure the container takes up the full screen */
+
+};
+
+.teachers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.teacher {
+  flex: 1 0 21%; /* 21% will allow 4 items per row with space between */
+  margin: 5%; /* optional: for some space between items */
+  width:fit-content;
+  
+  height:fit-content; /* adjust based on your requirements */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.student {
+  flex: 1 0 21%; /* 21% will allow 4 items per row with space between */
+  margin: 1%; /* optional: for some space between items */
+  width:fit-content;
+  
+  height:fit-content; /* adjust based on your requirements */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#admin_buttons {
+  display: flex;
+  justify-content: center;
+
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#student_courses {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#class_details {
+ 
+  text-align: center;
+}

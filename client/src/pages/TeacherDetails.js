@@ -21,9 +21,11 @@ function TeacherDetails({selectedTeacher,setViewTeacher}) {
             <br></br>
             {teacher_list}
             <br></br>
+            <div id='admin_buttons'>
             <button onClick={()=>setViewTeacher(false)} variant="fill" color="primary" >
             Return to Class List
             </button>
+            </div>
         </div>
     )
 }

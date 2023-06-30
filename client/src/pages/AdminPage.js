@@ -42,6 +42,7 @@ function AdminPage ({staff , setStaff, students , setStudents}) {
 
                 )}
                 
+                <div id='admin_buttons'>
                 <button disabled={disabled} onClick={()=>{
                     setAddTeacher(!addTeacher)
                     setDisabled(!disabled)
@@ -55,11 +56,12 @@ function AdminPage ({staff , setStaff, students , setStudents}) {
                 }} variant="fill" color="primary" >
                     Add Student
                 </button>
-
+                </div> 
+                
                 {addTeacher ? ( <TeacherForm setDisabled={setDisabled} setAddTeacher={setAddTeacher} addTeacher={addTeacher} staff={staff} setStaff={setStaff} /> ) : ("") }
 
                 {addStudent ? ( <StudentForm setDisabled={setDisabled} setAddStudent={setAddStudent} addStudent={addStudent} students={students} setStudents={setStudents} /> ) : ("") }
-                        
+                      
             </ol> 
 
         </main>
