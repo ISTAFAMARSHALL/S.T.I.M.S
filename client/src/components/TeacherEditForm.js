@@ -24,7 +24,6 @@ function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher, staff, setS
     birthday
   }
 
-  console.log(staff.filter((e) => e.id !== updateTeacher.id))
     
   function handleEditTeacher(e) {
     e.preventDefault();
