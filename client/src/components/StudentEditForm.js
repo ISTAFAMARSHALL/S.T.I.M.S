@@ -41,7 +41,11 @@ function StudentEditForm({setEditStudent,editStudent, updateStudent, students, s
   function handleDelete() {
     fetch(`students/${updateStudent.id}`, { method: "DELETE" })
     .then((r) => r.json())
-    .then((data) => setEditStudent(!editStudent))    
+    .then((data) => {
+      let filtered_students = students.filter((e) => e.id !== updateStudent.id);
+      setStudents([filtered_students]);
+      setEditStudent(!editStudent)
+    })    
   }
 
   return (

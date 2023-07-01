@@ -52,7 +52,11 @@ function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher, staff, setS
   function handleDelete() {
     fetch(`teachers/${updateTeacher.id}`, { method: "DELETE" })
     .then((r) => r.json())
-    .then(() => setEditTeacher(!editTeacher))
+    .then(() => {
+      let filtered_staff = staff.filter((e) => e.id !== updateTeacher.id)
+      setStaff([filtered_staff])
+      setEditTeacher(!editTeacher)
+    })
   }
 
   return (
