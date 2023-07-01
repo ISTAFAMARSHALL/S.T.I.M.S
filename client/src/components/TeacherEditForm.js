@@ -54,7 +54,7 @@ function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher, staff, setS
     .then((r) => r.json())
     .then(() => {
       let filtered_staff = staff.filter((e) => e.id !== updateTeacher.id)
-      setStaff([filtered_staff])
+      setStaff(filtered_staff)
       setEditTeacher(!editTeacher)
     })
   }

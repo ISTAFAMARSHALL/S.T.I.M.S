@@ -20,18 +20,23 @@ function HomePage({setLoggedIn}) {
   const [studentButton, setStudentButton] = useState(true);
 
   useEffect(() => {
-    fetch("/me")
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }})
-    .then((user) => {
-      setCurrentUser(user);
 
-      let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
+    let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
 
-      return fetch(`all_teachers/${filtered_school}`);
-    })
+    // fetch("/me")
+    // .then((response) => {
+    //   if (response.ok) {
+    //     return response.json();
+    //   }})
+    // .then((user) => {
+
+
+    //   let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
+
+    //   return fetch(`all_teachers/${filtered_school}`);
+    // })
+    
+    fetch(`all_teachers/${filtered_school}`)
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -51,10 +56,9 @@ function HomePage({setLoggedIn}) {
     .then((studentsData) => {
       setStudents(studentsData);
       setStudentButton(false)
-      setLoggedIn(true);
     })
     .catch(error => console.error('Error:', error));
-  }, [setCurrentUser, setStaff, setStudents]);
+  }, [setCurrentUser, setStaff, setStudents,]);
 
   return (
     <div id="container">

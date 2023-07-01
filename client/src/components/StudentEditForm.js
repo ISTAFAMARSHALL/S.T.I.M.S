@@ -43,7 +43,7 @@ function StudentEditForm({setEditStudent,editStudent, updateStudent, students, s
     .then((r) => r.json())
     .then((data) => {
       let filtered_students = students.filter((e) => e.id !== updateStudent.id);
-      setStudents([filtered_students]);
+      setStudents(filtered_students);
       setEditStudent(!editStudent)
     })    
   }

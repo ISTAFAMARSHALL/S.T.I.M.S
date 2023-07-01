@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import React from 'react';
 import Login from "./pages/Login"
 import HomePage from "./pages/HomePage";
+import { UserContext } from "./context/user";
 // import { GoogleAPI, GoogleLogin, GoogleLogout } from "react-google-oauth";
 
 
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const {currentUser, setCurrentUser} = useContext(UserContext);
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((user) => {
+          setCurrentUser(() => setCurrentUser(user))
+          setLoggedIn(() => setLoggedIn(true))
+        });
+      }
+    });
+  }, [setLoggedIn]);
 
 //   const responseGoogle = (response) => {
 //     console.log(response, "I AM RESPONSE FROM GOOGLE")
