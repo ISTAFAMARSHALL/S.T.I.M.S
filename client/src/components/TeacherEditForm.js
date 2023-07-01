@@ -40,6 +40,7 @@ function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher, staff, setS
     response.json().then((data) => {
 
     let filtered_staff = staff.filter((e) => e.id !== updateTeacher.id)
+
     setStaff([data, ...filtered_staff])
 
     setEditTeacher(!editTeacher)
@@ -53,14 +54,18 @@ function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher, staff, setS
     fetch(`teachers/${updateTeacher.id}`, { method: "DELETE" })
     .then((r) => r.json())
     .then(() => {
+
       let filtered_staff = staff.filter((e) => e.id !== updateTeacher.id)
+
+      
       setStaff(filtered_staff)
+      
       setEditTeacher(!editTeacher)
     })
   }
 
   return (
-
+    <div>
     <form  onSubmit={handleEditTeacher}>
 
       <div>
@@ -151,18 +156,23 @@ function TeacherEditForm({setEditTeacher,editTeacher, updateTeacher, staff, setS
       </div>
 
       <br></br>
-      
+      <div id='admin_buttons' >
       <button type="submit" value="Save">Update Teacher</button>
-
-      <button onClick={()=>setEditTeacher(!editTeacher)} variant="fill" color="primary" >
-        Cancel Edit
-      </button>
-
-      <button onClick={handleDelete} variant="fill" color="primary" >
-        Delete Teacher
-      </button>
+      </div>
+      <br></br>
 
     </form>
+    
+    <div id='admin_buttons' >
+    <button onClick={()=>setEditTeacher(!editTeacher)} variant="fill" color="primary" >
+    Cancel Edit
+    </button>
+
+    <button onClick={handleDelete} variant="fill" color="primary" >
+    Delete Teacher
+    </button>
+    </div>
+  </div>
   )
 }
 

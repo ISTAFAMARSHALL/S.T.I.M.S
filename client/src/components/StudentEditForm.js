@@ -49,7 +49,7 @@ function StudentEditForm({setEditStudent,editStudent, updateStudent, students, s
   }
 
   return (
-
+    <div>
     <form  onSubmit={handleEditStudent}>
 
       <div>
@@ -139,18 +139,24 @@ function StudentEditForm({setEditStudent,editStudent, updateStudent, students, s
       </div>
 
       <br></br>
-      
+      <div id='admin_buttons' >
       <button type="submit" value="Save">Update Student</button>
+      </div>
 
-      <button onClick={()=>setEditStudent(!editStudent)} variant="fill" color="primary" >
-          Cancel Edit
-      </button>
-
-      <button onClick={handleDelete} variant="fill" color="primary" >
-          Delete Student
-      </button>
 
     </form>
+
+    <div id='admin_buttons' >
+<button onClick={()=>setEditStudent(!editStudent)} variant="fill" color="primary" >
+Cancel Edit
+</button>
+
+<button onClick={handleDelete} variant="fill" color="primary" >
+Delete Student
+</button>
+</div>
+</div>
+
   )
 }
 

@@ -71,7 +71,9 @@ function LoginForm({ setLoggedIn }) {
         />
       </div>
 
-      <div>
+      <br></br>
+
+      <div id='admin_buttons' >
         <button variant="fill" color="primary" type="submit">
           Login
         </button>
