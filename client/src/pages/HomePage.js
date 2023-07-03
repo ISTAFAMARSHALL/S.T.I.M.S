@@ -42,7 +42,7 @@ function HomePage({setLoggedIn}) {
         return response.json();
       }})
     .then((teachersData) => {
-      setStaff(() => setStaff(teachersData));
+      setStaff(teachersData);
       setStaffButton(false)
 
       let filtered_school = currentUser.auth_level === "admin" && currentUser.schools.length === 0 ?  ("") : (currentUser.auth_level !== "teacher" && currentUser.auth_level !== "admin" ?  (currentUser.students[0].school.id) : (currentUser.schools[0].id))
