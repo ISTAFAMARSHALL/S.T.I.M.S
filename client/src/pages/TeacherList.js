@@ -13,6 +13,7 @@ function TeacherList ({staff , setStaff}) {
     setUpdateTeacher(e)
   }
 
+ 
   return editTeacher === true ? (
         
     <div >
@@ -32,9 +33,10 @@ function TeacherList ({staff , setStaff}) {
 
     <main >
       
-      <h1>All of {staff[0].school.name} Teachers</h1>
+      {/* <h1>All of {staff[0].school.name} Teachers</h1> */}
+      
       <div className="teachers" >
-      {staff.length !== 0 ? (staff.map((t) => (
+      {staff !== undefined ? (staff.map((t) => (
 
       <div key={t.id} className="teacher">
 
@@ -63,7 +65,7 @@ function TeacherList ({staff , setStaff}) {
       ))) : ("") }</div>
 
     </main>
-
+    
   )
 }
 

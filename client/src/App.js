@@ -15,7 +15,7 @@ function App() {
     fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => {
-          setCurrentUser(() => setCurrentUser(user))
+          setCurrentUser(user)
           setLoggedIn(() => setLoggedIn(true))
         });
       }

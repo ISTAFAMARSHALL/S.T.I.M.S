@@ -40,9 +40,9 @@ function StudentList ({students , setStudents }) {
         
     <main>
         
-      <h1>All of {students[0].school.name} Students</h1>
+      {/* <h1>All of {students[0].school.name} Students</h1> */}
 
-      {students.length !== 0 ? (students.map((s) => (
+      {students.length !== undefined ? (students.map((s) => (
             
         <ul key={s.id} className="student">
         
