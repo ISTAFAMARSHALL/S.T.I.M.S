@@ -16,7 +16,7 @@ function App() {
       if (response.ok) {
         response.json().then((user) => {
           setCurrentUser(user)
-          setLoggedIn(() => setLoggedIn(true))
+          setLoggedIn(true)
         });
       }
     });
