@@ -20,7 +20,7 @@ function App() {
         });
       }
     });
-  }, [setLoggedIn]);
+  }, [setCurrentUser]);
 
 //   const responseGoogle = (response) => {
 //     console.log(response, "I AM RESPONSE FROM GOOGLE")
