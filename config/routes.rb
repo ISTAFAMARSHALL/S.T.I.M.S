@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :students
   resources :teachers
   resources :student_courses
-  resources :users
+  # resources :users
 
   
 

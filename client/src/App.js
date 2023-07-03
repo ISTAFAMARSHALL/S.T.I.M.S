@@ -65,29 +65,30 @@ function App() {
     {!loggedIn ? (
     <Login setLoggedIn={setLoggedIn} />
     ) : (
-      <HomePage setLoggedIn={setLoggedIn} />
-    // <>
+      // <HomePage setLoggedIn={setLoggedIn} />
+    <div>
 
-    // <NavBar setLoggedIn={setLoggedIn} />
+    
 
-    // <Switch>
+    {/* <Switch>
 
-    // <Route path="/schools/">
-    //   <SchoolList/>
-    // </Route>
+    <Route path="/schools/">
+      <SchoolList/>
+    </Route>
 
-    // <Route path="/teachers/">
-    //   <TeacherList school={school} />
-    // </Route>
+    <Route path="/teachers/">
+      <TeacherList school={school} />
+    </Route>
 
-    // <Route path="/students/">
-    //   <StudentList school={school} />
-    // </Route>
+    <Route path="/students/">
+      <StudentList school={school} />
+    </Route>
 
-    // <Route path="/my_info/">
-    //     <MyInfoPage/>
-    // </Route>
-
+    <Route path="/my_info/">
+        <MyInfoPage/>
+    </Route>
+    </Switch> */}
+    </div>
 
 
     // <Route path="/">
