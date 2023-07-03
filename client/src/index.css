@@ -46,7 +46,7 @@ code {
 
 .student {
   flex: 1 0 21%; /* 21% will allow 4 items per row with space between */
-  margin: 5%; /* optional: for some space between items */
+  margin: 1%; /* optional: for some space between items */
   width:fit-content;
   
   height:fit-content; /* adjust based on your requirements */

@@ -33,10 +33,13 @@ function TeacherList ({staff , setStaff}) {
 
     <main >
       
-      {/* <h1>All of {staff[0].school.name} Teachers</h1> */}
-      
+      <h1>All of {staff !== undefined ? (staff.map((t) => t.school.name)[0]) : ("")} Teachers</h1>
+
       <div className="teachers" >
-      {staff !== undefined ? (staff.map((t) => (
+      {staff !== undefined ? (staff.map((t) => {
+        
+       return (
+
 
       <div key={t.id} className="teacher">
 
@@ -62,7 +65,7 @@ function TeacherList ({staff , setStaff}) {
 
       </div>
       
-      ))) : ("") }</div>
+      )})) : ("") }</div>
 
     </main>
     

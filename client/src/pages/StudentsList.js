@@ -26,6 +26,7 @@ function StudentList ({students , setStudents }) {
     setUpdateStudent(e)
   }
 
+
   return editStudent === true ? (
     
     <div>
@@ -40,8 +41,8 @@ function StudentList ({students , setStudents }) {
         
     <main>
         
-      {/* <h1>All of {students[0].school.name} Students</h1> */}
-
+      <h1>All of {students !== undefined ? (students.map((s) => s.school.name)[0]) : ("")} Students</h1>
+      
       {students.length !== undefined ? (students.map((s) => (
             
         <ul key={s.id} className="student">
