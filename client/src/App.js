@@ -15,8 +15,8 @@ function App() {
     fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => {
-          setCurrentUser(user)
-          setLoggedIn(true)
+          setCurrentUser(user);
+          setLoggedIn(true);
         });
       }
     });
@@ -65,30 +65,29 @@ function App() {
     {!loggedIn ? (
     <Login setLoggedIn={setLoggedIn} />
     ) : (
-      // <HomePage setLoggedIn={setLoggedIn} />
-    <div>
+      <HomePage setLoggedIn={setLoggedIn} />
+    // <>
 
-    
+    // <NavBar setLoggedIn={setLoggedIn} />
 
-    {/* <Switch>
+    // <Switch>
 
-    <Route path="/schools/">
-      <SchoolList/>
-    </Route>
+    // <Route path="/schools/">
+    //   <SchoolList/>
+    // </Route>
 
-    <Route path="/teachers/">
-      <TeacherList school={school} />
-    </Route>
+    // <Route path="/teachers/">
+    //   <TeacherList school={school} />
+    // </Route>
 
-    <Route path="/students/">
-      <StudentList school={school} />
-    </Route>
+    // <Route path="/students/">
+    //   <StudentList school={school} />
+    // </Route>
 
-    <Route path="/my_info/">
-        <MyInfoPage/>
-    </Route>
-    </Switch> */}
-    </div>
+    // <Route path="/my_info/">
+    //     <MyInfoPage/>
+    // </Route>
+
 
 
     // <Route path="/">
