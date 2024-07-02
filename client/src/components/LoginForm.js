@@ -1,22 +1,8 @@
-import React, { useState , useEffect, useContext } from "react";
+import React, { useState , useContext } from "react";
 import { useHistory } from 'react-router-dom';
 import { UserContext } from "../context/user";
-// import { gapi } from "gapi-script";
-// import LoginButton from "../components/LoginButton";
-
-// const clientId = "403940930490-l1870nfjc21miovm55s2nkrl74k23sd3.apps.googleusercontent.com";
 
 function LoginForm({ setLoggedIn }) {
-
-  // useEffect(() => {
-  //   function start() {
-  //     gapi.client.init({
-  //       clientId: clientId,
-  //       scope: "email"
-  //     })
-  //   };
-  //   gapi.load('client:auth2',start);
-  // });
 
   const {setCurrentUser} = useContext(UserContext);
 
@@ -27,6 +13,8 @@ function LoginForm({ setLoggedIn }) {
   const [errors, setErrors] = useState([]);
 
   function handleLogin(e) {
+    console.log("I AM IN HANDLE LOGIN", email, password )
+
     e.preventDefault();
     fetch("/login", {
     method: "POST",
@@ -77,8 +65,6 @@ function LoginForm({ setLoggedIn }) {
         <button variant="fill" color="primary" type="submit">
           Login
         </button>
-
-        {/* <LoginButton>Login With Google</LoginButton> */}
       </div>
 
       <div>
